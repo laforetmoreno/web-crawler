@@ -1,5 +1,6 @@
-const request = require('request-promise')
-const cheerio = require('cheerio')
+const request = require('request-promise');
+const cheerio = require('cheerio');
+const sendMail = require('./mailer.js');
 
 const url = 'https://rj.olx.com.br/?ot=1&q=macbook'
 
@@ -8,6 +9,10 @@ const options = {
     transform: function (body) {
         return cheerio.load(body);
     }
+}
+
+function makeTemplate(data) {
+    data.map(infos => infos.name)
 }
 
 request(options)
@@ -24,7 +29,8 @@ request(options)
                 arr.push(product);
             }
         })
-        console.log(arr)
+
+        // sendMail.sendMail(makeTemplate(arr))
     })
 
     .catch(err => {
