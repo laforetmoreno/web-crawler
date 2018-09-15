@@ -1,6 +1,6 @@
 const request = require('request-promise');
 const cheerio = require('cheerio');
-const sendMail = require('./mailer.js');
+const mailer = require('./mailer.js');
 
 const url = 'https://rj.olx.com.br/?ot=1&q=macbook'
 
@@ -29,8 +29,7 @@ request(options)
                 arr.push(product);
             }
         })
-
-        // sendMail.sendMail(makeTemplate(arr))
+        mailer.sendMail()
     })
 
     .catch(err => {

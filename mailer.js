@@ -4,12 +4,12 @@ const sgMail = require('@sendgrid/mail');
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-function sendMail(text) {
+function sendMail() {
     const templateData = {
         to: 'laforetmoreno@gmail.com',
         from: 'laforetmoreno@gmail.com',
         subject: 'Opa, preços bons a vista!',
-        text: text,
+        text: 'text'
     };
 
     sgMail.send(templateData);
