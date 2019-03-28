@@ -8,7 +8,7 @@ function sendMail() {
     const templateData = {
         to: 'laforetmoreno@gmail.com',
         from: 'laforetmoreno@gmail.com',
-        subject: 'Opa, preços bons a vista!',
+        subject: 'Opa, bons preços a vista!',
         text: 'text'
     };
 
